@@ -37,7 +37,7 @@ VALIDATE(){
    
 
 
-   cp mongo.repo /etc/yum.repos.d/mongo.repo
+   cp mongo.repo /etc/yum.repos.d/mongodb.repo
    VALIDATE $? "copying mongo repo"
    dnf install mongo-org -y
    VALIDATE $? "installing mongodb server"
@@ -49,4 +49,3 @@ VALIDATE $?" start mongodb"
  VALIDATE "allowing remote connection"
  systemctl restart mongodb
  VALIDATE "restart the mongodb"
- 
