@@ -1,9 +1,6 @@
 
 #!/bin/bash
 
-set -e 
-  trap 'echo "There is an Error in $LINENO < Command :$BASH_COMMAND"' ERR
-
 
 USERID=$(id -u)
 
@@ -45,7 +42,7 @@ VALIDATE(){
 VALIDATE $?"enable mongodb "
 systemctl start mongod 
 VALIDATE $?" start mongodb"
- sed -i 's/127.0.0.1/0.0.0.0/g' etc/mongod.conf
+ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
  VALIDATE "allowing remote connection"
- systemctl restart mongodb
+ systemctl restart mongod
  VALIDATE "restart the mongodb"
